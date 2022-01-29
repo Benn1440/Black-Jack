@@ -3,12 +3,12 @@ body {
     background-image: url("table.jpg");
     background-size: cover;
     text-align: center;
-    color: white;
+    color: #fff;
     font-weight: bold;
 }
 
 h1 {
-    color: goldenrod;
+    color: rgb(216, 162, 27);
 }
 
 #message-el {
@@ -17,13 +17,15 @@ h1 {
 .jackbody{
     margin-top:  5rem;
 }
-.btn {
+button {
     color: #016f32;
     width: 150px;
-    background: goldenrod;
+    background: rgb(216, 162, 27);
     padding-top: 5px;
     padding-bottom: 5px;
     font-weight: bold;
     border: none;
-    border-radius: 2px;
+    border-radius: 4px;
+    margin-bottom: 2px;
+    margin-top: 2px;
 }
