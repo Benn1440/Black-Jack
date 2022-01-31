@@ -7,6 +7,30 @@ let messageEl = document.getElementById("message-el");
 let sumEl = document.querySelector("#sum-el");
 let cardsEl = document.getElementById("cards-el");
 let playerEl = document.getElementById("player-el");
+let carddetails = document.getElementById("cardDisplay")
+let gainLoss = 5;
+let randomPrice = Math.floor(Math.random() * 1000);
+let Price = randomPrice;
+// console.log(Price)
+playerEl.textContent = `Capital: $ ${Price}`;
+
+
+
+// let player = {
+//   name: "Per",
+//   chips: 1000,
+// };
+
+// playerEl.textContent = player.name + ": $" + player.chips;
+
+
+// function getstartPrice() {
+//   // let randomPrice = Math.floor(Math.random() * 1000);
+//   // let Price = randomPrice;
+//   // playerEl.textContent = `Capital: $ ${Price}`;
+// }
+// getstartPrice();
+
 
 function getrandomCard() {
   let randomNumber = Math.floor(Math.random() * 13) + 1;
@@ -27,7 +51,16 @@ function startGame() {
   cards = [firstCard, secondCard];
   cardSum = firstCard + secondCard;
   renderGame();
+
+  if(cardSum === 21) {
+    carddetails.textContent = `New Balance : $ ${Price + gainLoss}`
+  }else if(cardSum > 21) {
+    console.log(Price - gainLoss) 
+  } else {
+    carddetails.textContent = "Draw a new card";
+  }
 }
+
 
 function renderGame() {
   if (cardSum <= 20) {
@@ -35,9 +68,11 @@ function renderGame() {
   } else if (cardSum === 21) {
     message = "You've got Blackjack!!";
     hasBlackjack = true;
+      // playerEl.textContent = `${Price} + ${gainLoss}`
   } else {
     message = "You're out of the game!";
     isAlive = false;
+    // console.log( `${Price} - ${gainLoss}`)
   }
   messageEl.textContent = message;
   sumEl.textContent = "Sum: " + cardSum;
@@ -57,9 +92,28 @@ function newcard() {
   }
 }
 
-let player = {
-  name: "Per",
-  chips: 1200,
-};
+// let player = {
+//   name: "Per",
+//   chips: 1000,
+// };
 
-playerEl.textContent = player.name + ": $" + player.chips;
+// playerEl.textContent = player.name + ": $" + player.chips;
+
+// Trying to make prices on the game dynamic
+
+
+
+// // function blackJack() {
+//   if (hasBlackjack === true) {
+//     playerEl.textContent +=  gainLoss;
+// //   }
+//   }
+
+// function capitalManipulate() {
+//   if(cardSum === 21) {
+//     console.log(Price + gainLoss)
+//   }else {
+//     console.log('Draw a new card')
+//   }
+// }
+//  capitalManipulate()
